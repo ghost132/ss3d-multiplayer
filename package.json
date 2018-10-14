@@ -1,10 +1,10 @@
 {
   "name": "estacao-hue13",
-  "version": "0.001-pre beta",
+  "version": "0.0.1",
   "description": "",
   "main": "servidor.js",
   "dependencies": {
-    "express": "^4.16.13",
+    "express": "^4.16.3",
     "shortid": "^2.2.8",
     "socket.io": "2.1.1"
   },
