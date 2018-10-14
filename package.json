@@ -1,0 +1,17 @@
+{
+  "name": "estacao-hue13",
+  "version": "0.001-pre beta",
+  "description": "",
+  "main": "servidor.js",
+  "dependencies": {
+    "express": "^4.16.13",
+    "shortid": "^2.2.8",
+    "socket.io": "2.1.1"
+  },
+  "DevDependecies": {},
+  "scripts": {
+    "start": "node servidor.js"
+  },
+  "author": "Kratos132",
+  "license": "MIT"
+}
