@@ -68,7 +68,6 @@ var jogador;
 
 					usuarios.splice(i, 1);//ELIMINADO!
 					console.log("o jogador "+usuarios[i].nome+" saiu");
-					console.log(usuarios.length);
 
 				}
 
@@ -89,13 +88,6 @@ var jogador;
 				jogador.rotacao = dados_jogador.rotacao;
 				socket.broadcast.emit("atualizar rotacao", jogador);
 
-
-		});
-
-		socket.on("Liga Mic", function(){
-
-			socket.emit("Mic ligado")
-			console.log("mic ligado");
 
 		});
 
