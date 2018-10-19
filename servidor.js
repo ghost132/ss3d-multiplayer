@@ -80,14 +80,14 @@ var jogador;
 
 					socket.on("Liga Mic", function(){
 
-						socket.emit("Mic Ligado", jogador)
+						socket.broadcast.emit("Mic Ligado", jogador)
 						console.log("mic ligado");
 
 					});
 
-					socket.on("Liga Mic", function(){
+					socket.on("Desliga Mic", function(){
 
-						socket.emit("Mic Desligado", jogador)
+						socket.broadcast.emit("Mic Desligado", jogador)
 						console.log("mic desligado");
 
 					});
