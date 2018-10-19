@@ -78,6 +78,13 @@ var jogador;
 			});
 
 
+					socket.on("Liga Mic", function(){
+
+						socket.emit("Mic Ligado", jogador)
+						console.log("mic ligado");
+
+					});
+
 			socket.on("POSICAO", function(dados){
 				jogador.posicao = dados.posicao;
 				socket.broadcast.emit("atualizar posicao", jogador);
@@ -92,12 +99,6 @@ var jogador;
 
 		});
 
-		socket.on("Liga Mic", function(){
-
-			socket.emit("Mic ligado")
-			console.log("mic ligado");
-
-		});
 
 		});
 });
