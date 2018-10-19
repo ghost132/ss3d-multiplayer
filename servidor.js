@@ -85,6 +85,13 @@ var jogador;
 
 					});
 
+					socket.on("Liga Mic", function(){
+
+						socket.emit("Mic Desligado", jogador)
+						console.log("mic desligado");
+
+					});
+
 			socket.on("POSICAO", function(dados){
 				jogador.posicao = dados.posicao;
 				socket.broadcast.emit("atualizar posicao", jogador);
