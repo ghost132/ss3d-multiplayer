@@ -68,7 +68,6 @@ var jogador;
 
 					usuarios.splice(i, 1);//ELIMINADO!
 					console.log("o jogador "+usuarios[i].nome+" saiu");
-					console.log(usuarios.length);
 
 				}
 
@@ -77,20 +76,6 @@ var jogador;
 
 			});
 
-
-					socket.on("Liga Mic", function(){
-
-						socket.broadcast.emit("Mic Ligado", jogador)
-						console.log("mic ligado");
-
-					});
-
-					socket.on("Desliga Mic", function(){
-
-						socket.broadcast.emit("Mic Desligado", jogador)
-						console.log("mic desligado");
-
-					});
 
 			socket.on("POSICAO", function(dados){
 				jogador.posicao = dados.posicao;
@@ -106,6 +91,11 @@ var jogador;
 
 		});
 
+		socket.on("Microfone Ligar", function(){
+
+			socket.broadcast.emit("Microfone Ligado", jogador);
+
+		});
 
 		});
 });
