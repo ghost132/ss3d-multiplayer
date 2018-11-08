@@ -26,7 +26,7 @@ var jogador;
 			posicao:dados_jogador.posicao,
 			rotacao:dados_jogador.rotacao
 
-		}
+		};
 
 		usuarios.push(jogador);//o jogador será adicionado a lista
 		console.log(usuarios.length);
@@ -51,27 +51,32 @@ var jogador;
 
 				console.log("o jogador "+usuarios[i].nome+" acabou de entrar");
 
-			}
+			};
 
-		}
+		};
 
 		socket.broadcast.emit("spawnar jogador online", jogador);
 
 // desconecta usuario e elimina da lista
-		socket.on("desconectado", function(){
+		socket.on("desconectou", function(){
 
+
+			for(var i = 0; i < usuarios.length; i++){
+				if(jogador.nome == usuarios[i].nome){
+
+					usuarios.splice(jogador.nome, 1);//ELIMINADO!
+
+					console.log("o jogador "+jogador.nome+" saiu");
+
+					}
+
+			console.log("usuarios conectados no momento: "+ usuarios[i].nome);
 			socket.broadcast.emit("usuario desconectado", jogador);
 
-			for(var i = 0; i < usuarios.lenght; i++){
 
-				if(usuarios[i].nome == jogador.nome && usuarios[i].id == jogador.id){
 
-					usuarios.splice(i, 1);//ELIMINADO!
-					console.log("o jogador "+usuarios[i].nome+" saiu");
 
-				}
-
-			}
+			};
 
 
 			});
