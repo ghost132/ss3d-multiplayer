@@ -7,6 +7,8 @@ var shortId = require("shortid");
 
 app.use(express.static(__dirname));
 var usuarios = [];
+var posicaoArmazenada = [];
+var ts = Date.now();
 
 
 
@@ -24,7 +26,7 @@ var jogador;
 			nome:dados_jogador.nome,
 			id:shortId.generate(),
 			posicao:dados_jogador.posicao,
-			rotacao:dados_jogador.rotacao
+			rotacao:dados_jogador.rotacao,
 
 		};
 
@@ -83,7 +85,21 @@ var jogador;
 
 
 			socket.on("POSICAO", function(dados){
-				jogador.posicao = dados.posicao;
+
+				posicaoArmazenada.push(dados.posicao);
+
+					for(var i =0; i<+posicaoArmazenada.length; i++){
+
+						jogador.posicao = posicaoArmazenada[i];
+
+						//console.log(dados.nome +" "+posicaoArmazenada[i]);
+					while(posicaoArmazenada.length > 30){
+
+						posicaoArmazenada.shift();
+
+					};
+					};
+
 				socket.broadcast.emit("atualizar posicao", jogador);
 
 			});
