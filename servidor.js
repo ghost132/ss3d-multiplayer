@@ -93,7 +93,7 @@ var jogador;
 						jogador.posicao = posicaoArmazenada[i];
 
 						//console.log(dados.nome +" "+posicaoArmazenada[i]);
-					while(posicaoArmazenada.length > 30){
+					while(posicaoArmazenada.length > 20){
 
 						posicaoArmazenada.shift();
 
